@@ -1,0 +1,77 @@
+<?php
+/**
+ * The base configurations of the WordPress.
+ *
+ * This file has the following configurations: MySQL settings, Table Prefix,
+ * Secret Keys, WordPress Language, and ABSPATH. You can find more information
+ * by visiting {@link http://codex.wordpress.org/Editing_wp-config.php Editing
+ * wp-config.php} Codex page. You can get the MySQL settings from your web host.
+ *
+ * This file is used by the wp-config.php creation script during the
+ * installation. You don't have to use the web site, you can just copy this file
+ * to "wp-config.php" and fill in the values.
+ *
+ * @package WordPress
+ */
+
+// ** DB Settings ** //
+define('DB_NAME',           '');
+define('DB_USER',           '');
+define('DB_PASSWORD',       '');
+define('DB_HOST',           'localhost');
+define('DB_CHARSET',        'utf8');
+define('DB_COLLATE',        '');
+
+// * Override domain settings to use whatever domain you run the site on *//
+define('WP_HOME',           'http://' .$_SERVER['SERVER_NAME']. '');
+define('WP_SITEURL',        'http://' .$_SERVER['SERVER_NAME']. '/wordpress');
+
+// * Set modified urls for wp-content *//
+define('WP_CONTENT_DIR',    $_SERVER['DOCUMENT_ROOT']. '/wp-content');
+define('WP_CONTENT_URL',    'http://' .$_SERVER['SERVER_NAME']. '/wp-content');
+
+// * Custom WP settings *//
+define('WP_POST_REVISIONS', false);
+define('EMPTY_TRASH_DAYS',  10);
+define('WPLANG',            'en_US');
+define('WP_DEBUG',          false);
+
+// * Set WP_DEBUG to true and WP will log these to debug.log in the wp-content dir *//
+if (WP_DEBUG) {
+  define('WP_DEBUG_LOG',      true);
+  define('WP_DEBUG_DISPLAY',  false);
+  @ini_set('display_errors',  0);
+}
+
+// * Table prefix, better set this to something custom upon install *//
+$table_prefix  = 'rv_';
+
+/**#@+
+ * Authentication Unique Keys and Salts.
+ *
+ * Change these to different unique phrases!
+ * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
+ * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+ *
+ * @since 2.6.0
+ */
+define('AUTH_KEY',         ';}mm^kxVz5ThTSSi-@d4iZe2Lzlgto}tYvR;|V-<8GFav$gj~<:YM&,0Cj>}_HcX');
+define('SECURE_AUTH_KEY',  '({g) `NP(!GZo;h#PQy9?:nKn7]elN C:wDf19od+%GKa<vc[fpFH%o:p%+N#4?@');
+define('LOGGED_IN_KEY',    'Y SV+BzMXNRt-KyL%CkRPNU< *A%]}:t!,svd(+@A`o>,bJ]yskJM-OitVUA(kxh');
+define('NONCE_KEY',        'a|ilb~J:#D|?I9$HjMNvs@TTvG#-=.+TIe3H059_M-EG>R]$hZ9o|4!AC_7s2FCB');
+define('AUTH_SALT',        '@UA|`cXVVb&F.5CG*#>6|j[j2_m}%h*>PY+v6mTWBn[#_Sd~Ho7d^5S#MrL7q|r}');
+define('SECURE_AUTH_SALT', 'Ky~{O2N`)<vCqVDeKSKx#lkXK<%cogY{0y@*dNF9fC,z*y9_TYlDr|&>-MG|POz>');
+define('LOGGED_IN_SALT',   '=A|YHZ[L^S^I!-$L)j`nDY@Sd{=<Kn(cYmo#4G |nE@#Sx5X8`@Hpr(4P6nnxiNk');
+define('NONCE_SALT',       'Mj:}65vnUFm@Lh,p5R.DzDAbD+Hj)-bsx@|8r)<Q-qH!W@54Jr8*ol70$Ptwj (;');
+
+/**#@-*/
+
+
+/* That's all, stop editing! Happy blogging. */
+
+/** Absolute path to the WordPress directory. */
+if ( !defined('ABSPATH') )
+	define('ABSPATH', dirname(__FILE__) . '/');
+
+/** Sets up WordPress vars and included files. */
+require_once(ABSPATH . 'wp-settings.php');
